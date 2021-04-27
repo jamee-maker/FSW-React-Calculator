@@ -1,0 +1,48 @@
+.App {
+  /* border: solid black 2px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 1000px;
+  width: 100%;
+}
+
+.Screen {
+  border: solid black 1px;
+  font-size: 40px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 500px;
+  height: 100px;
+}
+
+.Buttons h2 {
+  font-size: 30px;
+}
+
+.Operation {
+  display: flex;
+  flex-direction: column;
+}
+
+.Number {
+  display: flex;
+  flex-direction: column;
+}
+
+.firstFourRows {
+  /* border: solid black 2px; */
+  width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.row-5 {
+  /* border: solid black 2px; */
+  width: 500px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
