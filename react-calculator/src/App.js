@@ -104,10 +104,10 @@ export class App extends Component {
   };
 
   render() {
-    // console.log(this.state.output);
-    // console.log(this.state.memory);
-    // console.log(this.state.operation);
-    // console.log(this.state.tempMemory);
+    console.log(this.state.output);
+    console.log(this.state.memory);
+    console.log(this.state.operation);
+    console.log(this.state.tempMemory);
     return (
       <div className="App">
         <Screen screenOutput={this.state.output} />
