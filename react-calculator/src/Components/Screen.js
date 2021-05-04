@@ -19,7 +19,10 @@ export class Screen extends Component {
     }
     return (
       <div className="Screen">
-        <h2>{filter}</h2>
+        <h2>
+          {/* <span>{"-"}</span> */}
+          {filter}
+        </h2>
       </div>
     );
   }

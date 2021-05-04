@@ -11,21 +11,34 @@ export class App extends Component {
       output: [0],
       memory: [],
       operation: [],
+      allClear: "AC",
     };
   }
 
   addToScreen = (content) => {
     let values = ["÷", "%", "AC", "C", "x", "-", "+", "+/-", "=", "."];
-    if (content === "AC") {
+    if (!isNaN(content)) {
+      this.setState((prevState) => ({
+        allClear: "C",
+      }));
+    }
+    if (content === "AC" || content === "C") {
       this.setState((prevState) => ({
         output: [],
         tempMemory: [0],
         memory: [],
         operation: [],
+        allClear: "AC",
       }));
       content = 0;
     }
     if (values.includes(content)) {
+      if (content === "+/-") {
+        this.setState((prevState) => ({
+          output: [Number(this.state.output.join("")) * -1],
+          tempMemory: [0],
+        }));
+      }
       if (content === "=") {
         if (this.state.operation[0] === "+") {
           this.setState((prevState) => ({
@@ -60,7 +73,11 @@ export class App extends Component {
           }));
         }
       }
-      if (this.state.operation.length === 0 && content !== "=") {
+      if (
+        this.state.operation.length === 0 &&
+        content !== "=" &&
+        content !== "+/-"
+      ) {
         this.setState((prevState) => ({
           tempMemory: [0],
           memory: [...prevState.output],
@@ -104,7 +121,7 @@ export class App extends Component {
   };
 
   render() {
-    console.log(this.state.output);
+    console.log(Number(this.state.output.join("")));
     console.log(this.state.memory);
     console.log(this.state.operation);
     console.log(this.state.tempMemory);
@@ -115,6 +132,7 @@ export class App extends Component {
           addToScreen={this.addToScreen}
           output={this.state.output}
           memory={this.state.memory}
+          allClear={this.state.allClear}
         />
       </div>
     );

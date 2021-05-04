@@ -5,20 +5,17 @@ import Operation from "./Operation.js";
 export class Buttons extends Component {
   constructor() {
     super();
-    this.state = {
-      allClear: "AC",
-    };
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
   };
   render() {
-    const { output, addToScreen, memory } = this.props;
+    const { output, addToScreen, memory, allClear } = this.props;
     return (
       <form onSubmit={this.handleSubmit} className="Buttons">
         <div className="row-1 firstFourRows">
-          <Operation addToScreen={addToScreen} value={this.state.allClear} />
+          <Operation addToScreen={addToScreen} value={allClear} />
           <Operation addToScreen={addToScreen} value="+/-" />
           <Operation addToScreen={addToScreen} value="%" />
           <Operation addToScreen={addToScreen} value="÷" />
