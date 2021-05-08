@@ -36,7 +36,6 @@ export class App extends Component {
       if (content === "+/-") {
         this.setState((prevState) => ({
           output: [Number(this.state.output.join("")) * -1],
-          tempMemory: [0],
         }));
       }
       if (content === "=") {
