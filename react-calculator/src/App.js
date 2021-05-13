@@ -16,6 +16,7 @@ export class App extends Component {
   }
 
   addToScreen = (content) => {
+    // You don't need to make most of these `setState` calls using callback functions. You DO access the previous state a couple of times, but when you don't, your code will be much shorter and cleaner without that extra syntax.
     let values = ["÷", "%", "AC", "C", "x", "-", "+", "+/-", "=", "."];
     if (!isNaN(content)) {
       this.setState((prevState) => ({
@@ -90,15 +91,18 @@ export class App extends Component {
       }));
     } else {
       this.setState((prevState) => ({
+        // Nice use of spread syntax here!
         output: [...prevState.output, content],
       }));
     }
   };
 
   addition = () => {
-    let num = Number(this.state.output.join(""));
-    let num2 = Number(this.state.memory.join(""));
-    return num + num2;
+    // You don't need to use the intermediate variables in these four functions.
+    // I've rewritten it without them here, but if you like it the other way, you can certainly do it!
+    // Your current style results in shorter lines of code, which can be a win, stylistically.
+    // Up to you!
+    return Number(this.state.output.join("")) + Number(this.state.memory.join(""));
   };
 
   subtraction = () => {
